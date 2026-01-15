@@ -45,7 +45,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         header::before {
             content: '';
             position: absolute;
@@ -56,12 +56,12 @@
             background: radial-gradient(circle, rgba(64, 224, 208, 0.1) 0%, transparent 70%);
             z-index: 0;
         }
-
+        
         .header-content {
             position: relative;
             z-index: 1;
         }
-
+        
         h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -72,7 +72,7 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
         }
-
+        
         /* ===== BOTÓN ENGLISH PRESENTATION ===== */
         .english-button {
             display: inline-block;
@@ -92,18 +92,18 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
+        
         .english-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
             background: linear-gradient(135deg, #FF8E53, #FF6B6B);
         }
-
+        
         .english-button::before {
             content: '🇺🇸';
             margin-right: 8px;
         }
-
+        
         .main-tagline {
             font-size: 1.4rem;
             color: #FFD700;
@@ -114,7 +114,7 @@
             font-family: 'Poppins', sans-serif;
             animation: fadeInUp 1s ease-out 0.3s both;
         }
-
+        
         .sub-tagline {
             font-size: 1.2rem;
             color: #b0e0e6;
@@ -129,7 +129,7 @@
             font-family: 'Montserrat', sans-serif;
             animation: fadeInUp 1s ease-out 0.6s both;
         }
-
+        
         .highlight-text {
             color: #FFD700;
             font-weight: 600;
@@ -159,6 +159,198 @@
             font-weight: 600;
         }
 
+        /* ===== NUEVA SECCIÓN: IMAGINA GENERAR INGRESOS ===== */
+        .imagine-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 193, 7, 0.1));
+            border-left: 6px solid #FF6B6B;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .imagine-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 70%),
+                        radial-gradient(circle at 70% 20%, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .imagine-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .imagine-title {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+            to { text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4); }
+        }
+        
+        .imagine-question {
+            font-size: 1.4rem;
+            color: #FF8E53;
+            margin-bottom: 3rem;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .images-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            perspective: 1000px;
+        }
+        
+        .money-image {
+            width: 320px;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(50px) scale(0.9) rotateX(10deg);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53, #FFD700);
+            background-size: 300% 300%;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes borderGlow {
+            0% { 
+                border-color: #FF6B6B;
+                background-position: 0% 50%;
+            }
+            50% { 
+                border-color: #FF8E53;
+                background-position: 100% 50%;
+            }
+            100% { 
+                border-color: #FFD700;
+                background-position: 0% 50%;
+            }
+        }
+        
+        .money-image.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1) rotateX(0deg);
+        }
+        
+        .money-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: brightness(0.95);
+        }
+        
+        .money-image:hover img {
+            transform: scale(1.15);
+            filter: brightness(1.1) contrast(1.1);
+        }
+        
+        .money-image:hover {
+            transform: translateY(-15px) scale(1.05) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(255, 107, 107, 0.7);
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 32, 39, 0.95), transparent);
+            color: #FFD700;
+            padding: 1.2rem;
+            font-weight: bold;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+            text-align: center;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .money-image:hover .image-caption {
+            transform: translateY(0);
+        }
+        
+        .imagine-description {
+            color: #b0e0e6;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #40e0d0;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .imagine-highlight {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Animación de conteo */
+        .count-animation {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin: 1rem 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            animation: countPulse 1.5s ease-in-out infinite, float 3s ease-in-out infinite;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @keyframes countPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         /* ===== SECCIÓN DE COMPARTIR REDES SOCIALES ACTUALIZADA ===== */
         .share-section {
             background: linear-gradient(135deg, rgba(32, 58, 67, 0.9), rgba(44, 83, 100, 0.9));
@@ -168,7 +360,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .share-section::before {
             content: '';
             position: absolute;
@@ -179,12 +371,12 @@
             background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
             z-index: 0;
         }
-
+        
         .share-content {
             position: relative;
             z-index: 1;
         }
-
+        
         .share-title {
             color: #4CAF50;
             font-size: 1.8rem;
@@ -192,7 +384,7 @@
             text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
             font-family: 'Poppins', sans-serif;
         }
-
+        
         .share-cta {
             font-size: 1.3rem;
             color: #FFD700;
@@ -203,7 +395,7 @@
             line-height: 1.5;
             font-weight: 500;
         }
-
+        
         .share-buttons {
             display: flex;
             justify-content: center;
@@ -211,7 +403,7 @@
             gap: 1.5rem;
             margin: 2.5rem 0;
         }
-
+        
         .share-button {
             display: flex;
             align-items: center;
@@ -232,48 +424,53 @@
             animation: slideIn 0.6s ease-out forwards;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 0.5px;
-            cursor: pointer;
         }
-
+        
         .share-button:nth-child(1) { animation-delay: 0.2s; }
         .share-button:nth-child(2) { animation-delay: 0.4s; }
-
+        
         @keyframes slideIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
+        
         .share-button:hover {
             top: -5px;
             box-shadow: 0 12px 0 rgba(0, 0, 0, 0.2);
             transform: scale(1.08);
             letter-spacing: 1px;
         }
-
+        
         .share-button:active {
             top: 0;
             box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
         }
-
+        
         .share-button.whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
         }
-
+        
         .share-button.messenger {
             background: linear-gradient(135deg, #006AFF, #0051CC);
             color: white;
         }
-
+        
         .share-icon {
             font-size: 1.8rem;
             transition: transform 0.3s ease;
         }
-
+        
         .share-button:hover .share-icon {
             transform: scale(1.2) rotate(5deg);
         }
-
+        
         .share-note {
             color: #87ceeb;
             font-size: 1rem;
@@ -284,7 +481,7 @@
             margin-right: auto;
             line-height: 1.5;
         }
-
+        
         .website-link {
             color: #FFD700;
             font-weight: bold;
@@ -292,158 +489,1812 @@
             border-bottom: 2px dotted #FFD700;
             transition: all 0.3s ease;
         }
-
+        
         .website-link:hover {
             color: #FF8E53;
             border-bottom: 2px solid #FF8E53;
         }
 
-        /* ===== ANIMACIONES ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ===== CONTENEDORES DE VIDEO ===== */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 1rem;
+            background: #000;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== SECCIÓN DE TUTORIAL EMBED ===== */
+        .tutorial-section {
+            background: linear-gradient(135deg, rgba(15, 32, 39, 0.95), rgba(44, 83, 100, 0.95));
+            border-left: 6px solid #FF4081;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tutorial-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 64, 129, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .tutorial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tutorial-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tutorial-icon {
+            font-size: 2.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .tutorial-description {
+            color: #b0e0e6;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tutorial-note {
+            background: rgba(255, 64, 129, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid #FF4081;
+            text-align: left;
+        }
+        
+        .tutorial-note h4 {
+            color: #FFD700;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .tutorial-note p {
+            color: #e0ffff;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* ===== SECCIÓN DE INFORMACIÓN FINAL ===== */
+        .next-steps-section {
+            background: linear-gradient(135deg, rgba(32, 58, 67, 0.9), rgba(44, 83, 100, 0.9));
+            border-left: 6px solid #40e0d0;
+            text-align: center;
+        }
+        
+        .steps-container {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(64, 224, 208, 0.2);
+        }
+        
+        .steps-title {
+            color: #7fffd4;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .steps-list {
+            list-style: none;
+            padding-left: 0;
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .steps-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 2.5rem;
+            position: relative;
+            color: #e0ffff;
+            font-size: 1.1rem;
+        }
+        
+        .steps-list li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #40e0d0;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .important-note {
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .important-note h4 {
+            color: #FFD700;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .important-note p {
+            color: #e0ffff;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* ===== LISTA DE FUNCIONES ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+        .feature-card {
+            background: rgba(32, 58, 67, 0.7);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #40e0d0;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(64, 224, 208, 0.2);
+        }
+        
+        .feature-card h3 {
+            color: #98fb98;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        /* ===== SECCIÓN DE GUÍA EN PDF ===== */
+        .pdf-section {
+            background: linear-gradient(135deg, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.9));
+            border-left: 6px solid #FF6B6B;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pdf-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .pdf-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .pdf-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pdf-description {
+            font-size: 1.1rem;
+            color: #e0ffff;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .pdf-preview {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-preview:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #40e0d0;
+            transform: translateY(-5px);
+        }
+        
+        .pdf-preview-title {
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .pdf-preview-title svg {
+            fill: #FFD700;
+        }
+        
+        .pdf-details {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        
+        .pdf-details h4 {
+            color: #98fb98;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .pdf-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .pdf-details li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.8rem;
+            position: relative;
+            color: #b0e0e6;
+        }
+        
+        .pdf-details li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #40e0d0;
+            font-weight: bold;
+        }
+        
+        .pdf-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(90deg, #FF6B6B, #FF8E53);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            margin: 1.5rem auto;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #CC5555, 0 10px 25px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            top: 0;
+        }
+        
+        .pdf-button:hover {
+            top: -3px;
+            box-shadow: 0 8px 0 #CC5555, 0 15px 30px rgba(255, 107, 107, 0.6);
+            background: linear-gradient(90deg, #FF8E53, #FF6B6B);
+            transform: scale(1.05);
+        }
+        
+        .pdf-button svg {
+            fill: white;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ===== SECCIÓN DE LLAMADO A LA ACCIÓN ===== */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(to right, #1d4350, #2c5364);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #7fffd4;
+            word-wrap: break-word;
+        }
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #b0e0e6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            word-wrap: break-word;
+        }
+
+        /* ===== BOTONES ===== */
+        .telegram-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #0088cc, #006699);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1rem 2.8rem;
+            border-radius: 10px;
+            text-decoration: none;
+            margin: 1rem 0.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid #00aced;
+            box-shadow: 0 4px 10px rgba(0, 136, 204, 0.3);
+        }
+        .telegram-button:hover {
+            transform: translateY(-3px);
+            border-color: #2ca5e0;
+            box-shadow: 0 6px 15px rgba(44, 165, 224, 0.4);
+            background: linear-gradient(90deg, #2ca5e0, #0088cc);
+        }
+        
+        .register-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #00a8ff, #0097e6);
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding: 1.3rem 4rem;
+            border-radius: 12px;
+            text-decoration: none;
+            margin: 1.5rem 0;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #0078b3, 0 10px 25px rgba(0, 169, 255, 0.4);
+            transition: all 0.2s ease;
+            position: relative;
+            top: 0;
+        }
+        .register-button:hover {
+            top: -3px;
+            box-shadow: 0 8px 0 #0078b3, 0 15px 30px rgba(0, 169, 255, 0.6);
+            background: linear-gradient(90deg, #0097e6, #00a8ff);
+        }
+        
+        /* ===== NUEVOS BOTONES ===== */
+        .whatsapp-contact-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding: 1.3rem 3.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            margin: 1.5rem 0.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #0FAF5F, 0 10px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.2s ease;
+            position: relative;
+            top: 0;
+        }
+        
+        .whatsapp-contact-button:hover {
+            top: -3px;
+            box-shadow: 0 8px 0 #0FAF5F, 0 15px 30px rgba(37, 211, 102, 0.6);
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            transform: scale(1.05);
+        }
+        
+        .free-trial-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding: 1.3rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            margin: 1.5rem 0.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #CC5555, 0 10px 25px rgba(255, 107, 107, 0.4);
+            transition: all 0.2s ease;
+            position: relative;
+            top: 0;
+            animation: pulseButton 2s infinite;
+        }
+        
+        @keyframes pulseButton {
+            0%, 100% { 
+                box-shadow: 0 6px 0 #CC5555, 0 10px 25px rgba(255, 107, 107, 0.4);
+            }
+            50% { 
+                box-shadow: 0 6px 0 #CC5555, 0 10px 35px rgba(255, 107, 107, 0.7);
+            }
+        }
+        
+        .free-trial-button:hover {
+            top: -3px;
+            box-shadow: 0 8px 0 #CC5555, 0 15px 40px rgba(255, 107, 107, 0.8);
+            background: linear-gradient(135deg, #FF8E53, #FF6B6B);
+            transform: scale(1.05);
+            animation: none;
+        }
+        
+        .risk-free {
+            color: #98fb98;
+            font-style: italic;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* ===== SECCIÓN: CONTACTO PERSONALIZADO ===== */
+        .contact-personalized {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(32, 178, 170, 0.1));
+            border-left: 6px solid #40e0d0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-personalized::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(64, 224, 208, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-title {
+            color: #40e0d0;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(64, 224, 208, 0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .contact-description {
+            color: #b0e0e6;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(64, 224, 208, 0.2);
+            display: inline-block;
+        }
+        
+        .contact-name {
+            color: #FFD700;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-role {
+            color: #7fffd4;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* ===== SECCIÓN: MATRIZ 3x8 ===== */
+        .income-section {
+            background: rgba(15, 32, 39, 0.85);
+            border-left: 6px solid #FFA500;
+        }
+        .income-intro, .payouts, .breakdown {
+            margin-bottom: 2.5rem;
+        }
+        .income-intro p, .payouts p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #e0ffff;
+        }
+        .highlight-box {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid #FFA500;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .highlight-box h3 {
+            color: #FFD700;
+            margin-bottom: 0.8rem;
+        }
+        .payout-list {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        .payout-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .payout-list li:before {
+            content: '💰';
+            position: absolute;
+            left: 0;
+        }
+        
+        /* CONTENEDOR DE TABLA */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .earnings-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.05);
+            min-width: 600px;
+        }
+        .earnings-table th, .earnings-table td {
+            border: 1px solid #2c5364;
+            padding: 0.8rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .earnings-table th {
+            background-color: #1d4350;
+            color: #7fffd4;
+            font-size: 0.9rem;
+        }
+        .earnings-table td {
+            font-size: 0.9rem;
+        }
+        .earnings-table .total-row {
+            font-weight: bold;
+            background-color: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+        }
+        .matrix-total {
+            font-size: 1.6rem;
+            color: #92fe9d;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(64, 224, 208, 0.2);
+            color: #87ceeb;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #87ceeb;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== CHATBOT ===== */
+        .chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #40e0d0, #20b2aa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .chatbot-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(64, 224, 208, 0.6);
+        }
+        
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 2px solid #40e0d0;
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(90deg, #0f2027, #203a43);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .chatbot-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        
+        .bot-message {
+            background: #e3f2fd;
+            color: #1565c0;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user-message {
+            background: #40e0d0;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .chatbot-input {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+        
+        .chatbot-input input:focus {
+            border-color: #40e0d0;
+        }
+        
+        .chatbot-input button {
+            background: #40e0d0;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .chatbot-input button:hover {
+            background: #20b2aa;
+        }
+        
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 15px;
+            background: #f1f8e9;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .quick-reply {
+            background: #40e0d0;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quick-reply:hover {
+            background: #20b2aa;
+            transform: translateY(-2px);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            background: #f1f8e9;
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, #00c9ff, #92fe9d);
+            color: #0f2027;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 201, 255, 0.3);
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .container {
+            .container { 
                 padding: 1rem 1.2rem;
                 max-width: 100%;
             }
-            h1 { font-size: 2rem; }
+            h1 { 
+                font-size: 2rem;
+                line-height: 1.1;
+                padding: 0 5px;
+            }
+            .english-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+                margin-bottom: 1rem;
+            }
+            .main-tagline {
+                font-size: 1.2rem;
+            }
+            .sub-tagline {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+            .tagline { 
+                font-size: 1.1rem; 
+                line-height: 1.3;
+                padding: 0 5px;
+            }
+            .section { 
+                padding: 1.3rem; 
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                padding: 0 5px;
+            }
+            .cta-title { 
+                font-size: 1.7rem; 
+                padding: 0 10px;
+            }
+            .cta-subtitle {
+                font-size: 1.1rem;
+                padding: 0 5px;
+            }
+            .register-button, .telegram-button, .pdf-button, 
+            .whatsapp-contact-button, .free-trial-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                width: 100%;
+                display: block;
+                margin: 1rem auto;
+                max-width: 100%;
+            }
+            .features-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1rem;
+            }
+            .earnings-table th, .earnings-table td { 
+                padding: 0.5rem; 
+                font-size: 0.85rem;
+            }
+            .matrix-total { 
+                font-size: 1.4rem; 
+            }
+            .chatbot-container {
+                width: calc(100% - 30px);
+                height: 450px;
+                right: 15px;
+                left: 15px;
+                bottom: 15px;
+            }
+            .chatbot-icon {
+                bottom: 15px;
+                right: 15px;
+                width: 55px;
+                height: 55px;
+            }
+            .feature-card {
+                padding: 1.2rem;
+            }
+            .pdf-icon {
+                font-size: 3rem;
+            }
+            .pdf-preview {
+                padding: 1.5rem;
+            }
+            .steps-list li {
+                padding-left: 2rem;
+                font-size: 1rem;
+            }
+            .tutorial-icon {
+                font-size: 2rem;
+            }
+            
+            /* Responsive para nueva sección */
+            .imagine-title {
+                font-size: 1.6rem;
+            }
+            
+            .imagine-question {
+                font-size: 1.2rem;
+            }
+            
+            .images-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .money-image {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .count-animation {
+                font-size: 2.5rem;
+            }
+            
             .share-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+            
             .share-button {
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+            
+            .submit-button {
+                width: 100%;
+                max-width: 100%;
+            }
         }
+        
         @media (max-width: 480px) {
-            h1 { font-size: 1.8rem; }
-            .container { padding: 0.8rem 1rem; }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .english-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+            .main-tagline {
+                font-size: 1.1rem;
+            }
+            .container {
+                padding: 0.8rem 1rem;
+            }
+            .section {
+                padding: 1rem;
+            }
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+            .pdf-button {
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
+            }
+            .imagine-title {
+                font-size: 1.4rem;
+            }
+            .imagine-question {
+                font-size: 1.1rem;
+            }
+            .count-animation {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-<div class="container">
-
-    <!-- Cabecera -->
-    <header>
-        <div class="header-content">
-            <a href="https://aiviraldownline.com/?id=ROCA25"
-               class="english-button"
-               target="_blank" rel="noopener">
-                English Presentation
-            </a>
-
-            <h1>Aiviralana</h1>
-            <p class="main-tagline">No necesitas ser experto, creador de contenido ni vendedor.</p>
-            <p class="sub-tagline">Solo aprender a usar la IA de forma inteligente.
-                <span class="highlight-text">La IA se encarga del trabajo repetitivo mientras tú aprendes a monetizar en automático.
-                Haz este 2026 el mejor año de tu vida con el apalancamiento de Emily, las redes sociales y un sistema que te apoya a todo momento.</span>
-            </p>
-        </div>
-    </header>
-
-    <!-- SECCIÓN: Compartir en Redes Sociales -->
-    <section class="section share-section">
-        <div class="share-content">
-            <h2 class="share-title">¡Comparte y Gana!</h2>
-
-            <p class="share-cta">Comparte este sitio web y gana $25 una y otra vez con tu código personalizado</p>
-
-            <div class="share-buttons">
-                <!-- WhatsApp (mejor con https://) -->
-                <a id="shareWhatsappBtn"
-                   href="https://api.whatsapp.com/send?text=%C2%A1Descubre%20c%C3%B3mo%20ganar%20%2425%20repetidamente%20con%20AI%20Viral%20Downline!%20Mira%20este%20sistema%20revolucionario:%20https%3A%2F%2Fwww.aiviralana.com"
-                   class="share-button whatsapp"
-                   target="_blank" rel="noopener">
-                    <span class="share-icon">💬</span>
-                    Compartir en WhatsApp
+    <div class="container">
+        <!-- Cabecera Actualizada con Aiviralana -->
+        <header>
+            <div class="header-content">
+                <!-- Botón English Presentation -->
+                <a href="https://aiviraldownline.com/?id=ROCA25" 
+                   class="english-button" 
+                   target="_blank">
+                    English Presentation
                 </a>
+                
+                <h1>Aiviralana</h1>
+                <p class="main-tagline">No necesitas ser experto, creador de contenido ni vendedor.</p>
+                <p class="sub-tagline">Solo aprender a usar la IA de forma inteligente. 
+                    <span class="highlight-text">La IA se encarga del trabajo repetitivo mientras tú aprendes a monetizar en automático. 
+                    Haz este 2026 el mejor año de tu vida con el apalancamiento de Emily, las redes sociales y un sistema que te apoya a todo momento.</span>
+                </p>
+            </div>
+        </header>
 
-                <!-- SMS (compatible iPhone + Android) -->
-                <a href="#"
-                   class="share-button messenger"
-                   id="shareSmsBtn"
-                   role="button">
-                    <span class="share-icon">📱</span>
-                    Enviar por Mensaje
+        <!-- NUEVA SECCIÓN: Contacto Personalizado -->
+        <section class="section contact-personalized">
+            <div class="contact-content">
+                <h2 class="contact-title">¿Listo para Comenzar?</h2>
+                <p class="contact-description">
+                    ¡Hola! Soy <span style="color: #FFD700; font-weight: 600;">Ana Romo</span>, tu guía en este emocionante viaje con AI Viral Downline. Estoy aquí para ayudarte personalmente y responder todas tus preguntas.
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-name">Ana Romo</div>
+                    <div class="contact-role">Tu Guía Personal en AI Viral Downline</div>
+                    <p style="color: #b0e0e6; margin-bottom: 1.5rem;">
+                        Conéctate conmigo directamente por WhatsApp para recibir orientación personalizada y comenzar tu prueba GRATUITA.
+                    </p>
+                    
+                    <!-- Botón de WhatsApp -->
+                    <a href="https://wa.me/524776152686?text=¡Hola Ana! Me interesa comenzar con AI Viral Downline. ¿Podrías guiarme con el registro GRATUITO de 7 días?" 
+                       class="whatsapp-contact-button" target="_blank">
+                        💬 Conéctate con Ana por WhatsApp
+                    </a>
+                </div>
+                
+                <p style="color: #FFD700; font-size: 0.9rem; margin-top: 1rem;">
+                    <em>📱 Responde en minutos • 💬 Chat personalizado • 🎯 Orientación paso a paso</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- Primer video (Intro de Emily) -->
+        <section class="section">
+            <h2 class="section-title">Presentación Inicial</h2>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/IBhOkKNunkc"
+                        title="Presentación de Emily - IA para Negocios"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Sección: Lo que Emily hará por ti -->
+        <section class="section">
+            <h2 class="section-title">Lo que Emily hará por ti</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🧠 Explica de forma sencilla</h3>
+                    <p>Explica la línea descendente viral con IA en un lenguaje claro y fácil de entender para cualquier prospecto.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Desglosa la matriz 3x8</h3>
+                    <p>Descompone la estructura de compensación para que los prospectos la entiendan al instante, sin confusiones.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ Supera objeciones</h3>
+                    <p>Anticipa y responde a las dudas comunes antes de que la gente siquiera las pregunte, allanando el camino.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🤖 Guía el registro automático</h3>
+                    <p>Guía paso a paso a los prospectos para que se unan a tu equipo de manera automática y sin esfuerzo para ti.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Segundo video (Presentación completa) -->
+        <section class="section">
+            <h2 class="section-title">Presentación Completa del Sistema</h2>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/A8bGvBjWgkw"
+                        title="Presentación Completa del Programa AI Viral Downline"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Sección: Guía en PDF -->
+        <section class="section pdf-section">
+            <h2 class="section-title">📘 Guía Completa en PDF</h2>
+            
+            <div class="pdf-content">
+                <div class="pdf-icon">📘</div>
+                
+                <p class="pdf-description">
+                    Descarga nuestra **Guía Completa de AI Viral Downline** en formato PDF. Este documento contiene toda la información detallada que necesitas para entender completamente el sistema, la matriz de compensación y cómo comenzar tu viaje hacia los ingresos residuales.
+                </p>
+                
+                <div class="pdf-preview">
+                    <div class="pdf-preview-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z"/>
+                            <path d="M10 9h6v2h-6zM10 12h4v2h-4zM10 15h6v2h-6z"/>
+                        </svg>
+                        Guía Completa AI Viral Downline
+                    </div>
+                    
+                    <div class="pdf-details">
+                        <h4>🎯 Lo que encontrarás en esta guía:</h4>
+                        <ul>
+                            <li>Explicación detallada del sistema AI Viral Downline</li>
+                            <li>Desglose completo de la matriz 3x8</li>
+                            <li>Estrategias para maximizar tus ingresos</li>
+                            <li>Pasos para comenzar tu viaje</li>
+                            <li>Preguntas frecuentes y respuestas</li>
+                            <li>Contactos de soporte y comunidad</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="https://www.canva.com/design/DAG8PbAxxn8/M3aOVhlhYAp4399dkuZDcw/view?utm_content=DAG8PbAxxn8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h786681e006" 
+                   class="pdf-button" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Descargar Guía PDF
                 </a>
+                
+                <p style="color: #b0e0e6; font-size: 0.9rem; margin-top: 1rem;">
+                    <small>📱 Compatible con todos los dispositivos • 📄 Formato PDF de alta calidad • 🔒 Acceso instantáneo</small>
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección: Tu Matriz 3x8 - Ingresos Residuales -->
+        <section class="section income-section">
+            <h2 class="section-title">Tu Matriz 3x8 — Ingresos Residuales</h2>
+
+            <div class="income-intro">
+                <p>Como miembro <strong>GRATUITO</strong>, ya ocupas una posición en la matriz. Una vez que te actualices, desbloqueas toda la estructura de ingresos, <strong>incluyendo la capacidad de ganar durante tu prueba de 7 días</strong>.</p>
             </div>
 
-            <p class="share-note">
-                * Cada vez que alguien se registre usando tu enlace personalizado, podrías ganar $25.
-                ¡Comparte
-                <a href="https://www.aiviralana.com" class="website-link" target="_blank" rel="noopener">este sitio web</a>
-                con amigos, familiares y contactos para multiplicar tus ingresos!
+            <div class="payouts">
+                <h3>💰 Pagos Mensuales de la Matriz</h3>
+                <ul class="payout-list">
+                    <li><strong>Nivel 1</strong> — $10 por miembro (3 miembros = $30/mes)</li>
+                    <li><strong>Niveles 2–7</strong> — $2 por miembro mensual (Ganas Comisiones de Matriz del Nivel 1 al 7 sin referidos personales)</li>
+                    <li><strong>Nivel 8</strong> — $3 por miembro (Requiere solo 3 referidos personales)</li>
+                </ul>
+                <div class="highlight-box">
+                    <h3>🚨 Beneficio Clave</h3>
+                    <p>Con solo 3 miembros en el Nivel 1, tu membresía se paga sola — ya sea que vengan de tus referidos o del "spillover" (derrame) del sistema.</p>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <h3>📈 Desglose de Ganancias — Tu Potencial de Ingresos</h3>
+                <p>Los niveles 1–7 pueden pagar hasta <strong>$6,582/mes sin necesidad de patrocinar a nadie</strong>. Si añades el Nivel 8, la matriz completa suma <strong>$26,265 mensuales</strong>.</p>
+
+                <h4>Niveles 1–7 (Ganancias sin patrocinio)</h4>
+                <div class="table-container">
+                    <table class="earnings-table">
+                        <thead>
+                            <tr>
+                                <th>Nivel</th>
+                                <th>Miembros</th>
+                                <th>Comisión por Miembro</th>
+                                <th>Ingreso Mensual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Nivel 1</td><td>3</td><td>$10</td><td>$30</td></tr>
+                            <tr><td>Nivel 2</td><td>9</td><td>$2</td><td>$18</td></tr>
+                            <tr><td>Nivel 3</td><td>27</td><td>$2</td><td>$54</td></tr>
+                            <tr><td>Nivel 4</td><td>81</td><td>$2</td><td>$162</td></tr>
+                            <tr><td>Nivel 5</td><td>243</td><td>$2</td><td>$486</td></tr>
+                            <tr><td>Nivel 6</td><td>729</td><td>$2</td><td>$1,458</td></tr>
+                            <tr><td>Nivel 7</td><td>2,187</td><td>$2</td><td>$4,374</td></tr>
+                            <tr class="total-row">
+                                <td colspan="3"><strong>TOTAL (Niveles 1-7)</strong></td>
+                                <td><strong>$6,582/mes</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Nivel 8 (Con solo 3 referidos personales)</h4>
+                <div class="table-container">
+                    <table class="earnings-table">
+                        <thead>
+                            <tr>
+                                <th>Nivel</th>
+                                <th>Miembros</th>
+                                <th>Comisión por Miembro</th>
+                                <th>Ingreso Mensual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Nivel 8</td><td>6,561</td><td>$3</td><td>$19,683</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="matrix-total">🔥 Total de Matriz Completa: $26,265/mes</p>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN: Imagina generar ingresos de $25 -->
+        <section class="section imagine-section">
+            <div class="imagine-content">
+                <h2 class="imagine-title">¡Imagina generar ingresos de $25 una y otra vez!</h2>
+                
+                <div class="count-animation">$25</div>
+                
+                <p class="imagine-question">¿Y cobrar el mismo día, la primera semana o en el primer mes?</p>
+                
+                <!-- IMÁGENES ACTUALIZADAS CON ENLACES DE GITHUB -->
+                <div class="images-container" id="imagesContainer">
+                    <div class="money-image">
+                        <img src="https://github.com/emprendedr/Jobsaibuilder/raw/main/images/IMG_4993.jpeg" alt="Ingresos con Sistema Automatizado" loading="lazy">
+                        <div class="image-caption">Sistema Automatizado de Ingresos</div>
+                    </div>
+                    
+                    <div class="money-image">
+                        <img src="https://github.com/emprendedr/Jobsaibuilder/raw/main/images/IMG_4602.jpeg" alt="Generación de Ingresos Automáticos" loading="lazy">
+                        <div class="image-caption">Ingresos Automáticos</div>
+                    </div>
+                    
+                    <div class="money-image">
+                        <img src="https://github.com/emprendedr/Jobsaibuilder/raw/main/images/DAD521F3-0680-4774-87B1-70D458CA19B3.jpeg" alt="Monetización Automática" loading="lazy">
+                        <div class="image-caption">Monetización Automática</div>
+                    </div>
+                    
+                    <div class="money-image">
+                        <img src="https://github.com/emprendedr/Jobsaibuilder/raw/main/images/30a4b570-9bad-4f0c-b00b-34c7f50d2104.jpeg" alt="Sistema de Referidos Automatizado" loading="lazy">
+                        <div class="image-caption">Sistema de Referidos</div>
+                    </div>
+                </div>
+                
+                <p class="imagine-description">
+                    Con <span class="imagine-highlight">AI Viral Downline</span>, cada referencia exitosa puede generarte <span class="imagine-highlight">$25 de ingreso inmediato</span>, y lo mejor es que este proceso se puede repetir una y otra vez. 
+                    <br><br>
+                    Imagina despertar cada mañana con nuevos ingresos en tu cuenta, generados automáticamente mientras duermes. ¡Esa es la magia del sistema de referidos automatizado!
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ACTUALIZADA: Llamado a la Acción con Registro GRATIS -->
+        <section class="cta-section">
+            <h2 class="cta-title">¡Activa Tu Prueba GRATUITA de 7 Días!</h2>
+            <p class="cta-subtitle">Da el primer paso para automatizar tu negocio y activar tu potencial de ingresos residuales. <strong>¡REGISTRO TOTALMENTE GRATIS por 7 días!</strong> Sigue el procedimiento indicado para comenzar correctamente.</p>
+            
+            <!-- Botón de Registro GRATIS Atractivo -->
+            <a href="https://aiviraldownline.com/?id=ROCA25" 
+               class="free-trial-button" target="_blank">
+                🚀 ¡REGÍSTRATE GRATIS POR 7 DÍAS!
+            </a>
+            
+            <p class="risk-free" style="color: #FFD700; font-size: 1.1rem; margin: 1rem 0;">
+                ⭐ 100% GRATIS • Sin tarjeta de crédito • Sin compromiso
             </p>
+            
+            <!-- Instrucciones para el tutorial -->
+            <div class="important-note" style="margin: 2rem auto; max-width: 800px;">
+                <h4>📋 INSTRUCCIONES IMPORTANTES PARA REGISTRO EXITOSO:</h4>
+                <p>
+                    <strong>1. PRIMERO MIRA EL TUTORIAL COMPLETO:</strong><br>
+                    Antes de registrarte, <span style="color: #FFD700;">VE EL VIDEO TUTORIAL</span> que está justo debajo para entender exactamente cómo funciona el sistema y cómo realizar un registro exitoso.
+                </p>
+                <p>
+                    <strong>2. LUEGO REGÍSTRATE GRATIS:</strong><br>
+                    Después de ver el tutorial completo, haz clic en el botón <span style="color: #FFD700;">"¡REGÍSTRATE GRATIS POR 7 DÍAS!"</span> de arriba para comenzar tu prueba gratuita.
+                </p>
+                <p>
+                    <strong>3. SIGUE LOS PASOS DEL TUTORIAL:</strong><br>
+                    Durante el registro, sigue exactamente los pasos que se muestran en el tutorial para asegurar una activación correcta.
+                </p>
+            </div>
+            
+            <!-- Video tutorial para inscripción exitosa -->
+            <section class="next-steps-section" style="margin: 2.5rem 0; background: transparent; border: none; padding: 0;">
+                <div class="steps-container">
+                    <h3 class="steps-title">🎬 TUTORIAL PARA INSCRIPCIÓN EXITOSA</h3>
+                    <p class="cta-subtitle" style="margin-bottom: 1.5rem;">
+                        <strong>¡IMPORTANTE!</strong> Mira este tutorial completo antes de registrarte para asegurar una inscripción exitosa.
+                    </p>
+                    
+                    <!-- Video tutorial SOLO aquí -->
+                    <div class="video-wrapper" style="margin: 2rem 0;">
+                        <iframe src="https://www.youtube.com/embed/Gdy_rvXfcpA?si=5CgSBSRhHh5mkwxk"
+                                title="Tutorial Completo AI Viral Downline - Registro y Activación"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <div class="important-note" style="background: rgba(64, 224, 208, 0.1); border-left: 4px solid #40e0d0;">
+                        <h4>✅ PASOS A SEGUIR DESPUÉS DEL TUTORIAL:</h4>
+                        <p>
+                            1. <strong>Haz clic en el botón "¡REGÍSTRATE GRATIS POR 7 DÍAS!"</strong> de arriba<br>
+                            2. <strong>Completa el formulario de registro</strong> con tus datos reales<br>
+                            3. <strong>Confirma tu email</strong> (revisa bandeja de entrada y spam)<br>
+                            4. <strong>Accede a tu área de miembro</strong> y configura tu perfil<br>
+                            5. <strong>¡Comienza a disfrutar de tu prueba GRATIS!</strong>
+                        </p>
+                    </div>
+                    
+                    <ul class="steps-list">
+                        <li><strong>La prueba de 7 días es 100% GRATUITA</strong> - sin cargos ocultos</li>
+                        <li><strong>Puedes cancelar en cualquier momento</strong> durante los primeros 7 días</li>
+                        <li><strong>Acceso completo a todas las funciones</strong> durante la prueba</li>
+                        <li><strong>Soporte personalizado incluido</strong> durante tu prueba gratuita</li>
+                    </ul>
+                    
+                    <!-- Botón de WhatsApp adicional -->
+                    <p style="color: #98fb98; margin-top: 1.5rem; font-style: italic;">
+                        ¿Tienes dudas después de ver el tutorial? ¡Conéctate con Ana por WhatsApp!
+                    </p>
+                    
+                    <a href="https://wa.me/524776152686?text=¡Hola Ana! Vi el tutorial y tengo dudas sobre el registro GRATUITO. ¿Podrías ayudarme?" 
+                       class="whatsapp-contact-button" target="_blank" style="margin-top: 1rem;">
+                        💬 Pregúntale a Ana por WhatsApp
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Botón de Telegram después de la nueva información -->
+            <a href="https://t.me/+EnM9LTD6JlgzMjcx" 
+               class="telegram-button" target="_blank">
+                📱 Únete a nuestro Grupo de Telegram
+            </a>
+            
+            <p class="risk-free">Conecta con nuestra comunidad para más información y soporte</p>
+            <p><small>Consulta en nuestro grupo de Telegram para detalles adicionales</small></p>
+        </section>
+
+        <!-- NUEVA SECCIÓN: Compartir en Redes Sociales ACTUALIZADA -->
+        <section class="section share-section">
+            <div class="share-content">
+                <h2 class="share-title">¡Comparte y Gana!</h2>
+                
+                <p class="share-cta">Comparte este sitio web y gana $25 una y otra vez con tu código personalizado</p>
+                
+                <div class="share-buttons">
+                    <a href="https://api.whatsapp.com/send?text=¡Descubre cómo ganar $25 repetidamente con AI Viral Downline! Mira este sistema revolucionario: www.aiviralana.com" 
+                       class="share-button whatsapp" target="_blank">
+                        <span class="share-icon">💬</span>
+                        Compartir en WhatsApp
+                    </a>
+                    
+                    <a href="sms:?body=¡Mira esta oportunidad para ganar $25 repetidamente con IA! www.aiviralana.com" 
+                       class="share-button messenger" target="_blank">
+                        <span class="share-icon">📱</span>
+                        Enviar por Mensaje
+                    </a>
+                </div>
+                
+                <p class="share-note">
+                    * Cada vez que alguien se registre usando tu enlace personalizado, podrías ganar $25. 
+                    ¡Comparte <a href="www.aiviralana.com" class="website-link" target="_blank">este sitio web</a> con amigos, familiares y contactos para multiplicar tus ingresos!
+                </p>
+            </div>
+        </section>
+
+        <!-- FOOTER (simplificado como solicitaste) -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-bottom">
+                    <p>Todos los derechos reservados © 2025 Aiviralana.</p>
+                    <p>Este sitio opera de manera independiente.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Chatbot Icon -->
+    <div class="chatbot-icon" id="chatbotIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
+            <path d="M7 9h10v2H7zm0 4h7v2H7z"/>
+        </svg>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#40e0d0">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
+                    <path d="M7 9h10v2H7zm0 4h7v2H7z"/>
+                </svg>
+                Asistente Emily - Aiviralana
+            </div>
+            <button class="chatbot-close" id="chatbotClose">&times;</button>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div style="text-align:center; color:#87ceeb; margin-top:2rem;">
-            <p>Todos los derechos reservados © 2025 Aiviralana.</p>
-            <p>Este sitio opera de manera independiente.</p>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <!-- Mensajes aparecerán aquí -->
         </div>
-    </footer>
+        <div class="quick-replies">
+            <button class="quick-reply" data-reply="¿Cómo me registro GRATIS?">Registro Gratis</button>
+            <button class="quick-reply" data-reply="¿Cuánto cuesta después de 7 días?">Después de prueba</button>
+            <button class="quick-reply" data-reply="¿Cómo contacto a Ana?">Contactar a Ana</button>
+            <button class="quick-reply" data-reply="¿Dónde está el tutorial?">Ver tutorial</button>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Escribe tu pregunta aquí..." autocomplete="off">
+            <button id="chatbotSend">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cta-buttons" id="ctaButtons" style="display: none;">
+            <a href="https://aiviraldownline.com/?id=ROCA25" class="cta-button" target="_blank">Registro Gratis 7 Días</a>
+            <a href="https://wa.me/524776152686" class="cta-button" target="_blank" style="background: linear-gradient(135deg, #25D366, #128C7E);">WhatsApp con Ana</a>
+        </div>
+    </div>
 
-</div>
+    <script>
+        // Chatbot Variables
+        const chatbotIcon = document.getElementById('chatbotIcon');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        const quickReplyButtons = document.querySelectorAll('.quick-reply');
+        const ctaButtons = document.getElementById('ctaButtons');
 
-<!-- ===== SCRIPT SMS iPhone + Android (CONFIGURADO) ===== -->
-<script>
-(function () {
-  const smsBtn = document.getElementById("shareSmsBtn");
-  if (!smsBtn) return;
+        // Base de conocimiento actualizada del chatbot
+        const knowledgeBase = {
+            "hola": "¡Hola! 👋 Soy **Emily**, tu asistente de IA para Aiviralana. Puedo explicarte cómo funciona el sistema y guiarte en el proceso. **¡OFERTA ESPECIAL!** Registro GRATUITO por 7 días sin tarjeta de crédito. ¿En qué puedo ayudarte hoy?",
+            
+            "cómo me registro gratis": "🎯 **REGISTRO GRATUITO 7 DÍAS:**\n1. **Primero mira el tutorial completo** en la página\n2. **Luego haz clic en el botón '¡REGÍSTRATE GRATIS POR 7 DÍAS!'**\n3. **Completa el formulario** con tus datos reales\n4. **Confirma tu email** y ¡listo!\n\n🔗 **Enlace directo:** https://aiviraldownline.com/?id=ROCA25",
+            
+            "registro gratis": "✅ **¡Sí! Registro 100% GRATIS por 7 días:**\n• Sin tarjeta de crédito\n• Sin compromiso\n• Acceso completo\n• Puedes cancelar cuando quieras\n\n**Procedimiento:**\n1. Mira el tutorial en la página\n2. Haz clic en '¡REGÍSTRATE GRATIS POR 7 DÍAS!'\n3. Sigue los pasos del tutorial",
+            
+            "cuánto cuesta después de 7 días": "💰 **Después de la prueba GRATUITA:**\n• Suscripción mensual: **$28**\n• Esto incluye acceso completo al sistema\n• Soporte de IA 24/7\n• Todas las herramientas de automatización\n\n**💡 Recuerda:** Tienes 7 días GRATIS para probar todo.",
+            
+            "28": "✅ **$28 al mes** después de tu prueba GRATUITA de 7 días. Para comenzar:\n1. **Regístrate GRATIS ahora:** https://aiviraldownline.com/?id=ROCA25\n2. **Disfruta 7 días sin costo**\n3. **Decide si continuas** después de la prueba",
+            
+            "cómo contacto a ana": "👩‍💼 **Para contactar a Ana Romo:**\n• **WhatsApp:** https://wa.me/524776152686\n• **Mensaje predeterminado:** '¡Hola Ana! Me interesa comenzar con AI Viral Downline'\n\n**Ana te guiará personalmente** en el proceso de registro y tus primeros pasos.",
+            
+            "contactar a ana": "💬 **Conéctate con Ana Romo:**\n📱 WhatsApp: +52 477 615 2686\n🔗 Enlace directo: https://wa.me/524776152686\n\n**Ella te ayudará con:**\n• Registro GRATUITO\n• Dudas sobre el sistema\n• Soporte personalizado\n• Estrategias de crecimiento",
+            
+            "dónde está el tutorial": "🎬 **TUTORIAL PARA INSCRIPCIÓN EXITOSA:**\n**ENCUÉNTRALO EN LA PÁGINA:**\n1. Baja a la sección '¡Activa Tu Prueba GRATUITA de 7 Días!'\n2. Mira el video tutorial COMPLETO\n3. Sigue los pasos mostrados\n\n**⚠️ IMPORTANTE:** Mira el tutorial ANTES de registrarte.",
+            
+            "ver tutorial": "📽️ **Tutorial disponible en la página:**\nEn la sección **'¡Activa Tu Prueba GRATUITA de 7 Días!'** encontrarás:\n• Video tutorial paso a paso\n• Instrucciones para registro exitoso\n• Consejos para comenzar\n\n**Luego del tutorial:** Registro GRATIS en https://aiviraldownline.com/?id=ROCA25",
+            
+            "qué es": "🤖 **Aiviralana** es una plataforma de automatización con inteligencia artificial diseñada para ayudar a personas a promocionar oportunidades digitales, atraer prospectos y generar ingresos residuales en línea.\n\n**💡 OFERTA ESPECIAL:** 7 días GRATIS para probarlo.",
+            
+            "automatizar": "🔄 **Sistema de automatización:**\nAiviralana se encarga de:\n• Atender prospectos 24/7\n• Explicar el sistema automáticamente\n• Guiar el proceso de registro\n• Generar ingresos residuales\n\n**✅ Pruébalo GRATIS 7 días:** https://aiviraldownline.com/?id=ROCA25",
+            
+            "matriz": "📊 **Matriz 3x8:**\n• Nivel 1: 3 spots = $30/mes (se paga tu membresía)\n• Niveles 2-7: $2 por miembro = $6,552/mes (sin referir)\n• Nivel 8: $3 por miembro = $19,683/mes (con 3 referidos)\n• **Total posible: $26,265/mes**\n\n**🎯 Pruébalo GRATIS 7 días primero.**",
+            
+            "ganar": "💰 **Potencial de ingresos:**\n• Comisiones de matriz 3x8 ($6,582/mes niveles 1-7)\n• Hasta $26,265/mes con matriz completa\n• Spillover automático (ingresos pasivos)\n\n**🚀 Comienza GRATIS:** https://aiviraldownline.com/?id=ROCA25",
+            
+            "gracias": "¡De nada! 😊 Estoy aquí para ayudarte. **Recuerda:** Tienes 7 días GRATIS para probar el sistema. ¿Listo para registrarte?",
+            
+            "adiós": "¡Hasta luego! 👋 Recuerda que tienes 7 días GRATIS para probar Aiviralana.",
+            
+            "default": "🤔 ¿Podrías reformular tu pregunta? Te puedo ayudar con:\n• Registro GRATUITO de 7 días\n• Cómo contactar a Ana Romo\n• Ver el tutorial de inscripción\n• Información sobre el sistema\n\n**💡 OFERTA:** 7 días GRATIS en https://aiviraldownline.com/?id=ROCA25"
+        };
 
-  // ✅ Mensaje + URL (usa https para compatibilidad total)
-  const message = "¡Mira esta oportunidad para ganar $25 repetidamente con IA!";
-  const url = "https://www.aiviralana.com";
-  const bodyText = `${message} ${url}`;
+        // Estado inicial
+        let initialMessageShown = false;
 
-  // Detect iOS (iPhone/iPad/iPod)
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-  // ✅ Formato SMS correcto según plataforma
-  const smsHref = isIOS
-    ? `sms:&body=${encodeURIComponent(bodyText)}`
-    : `sms:?body=${encodeURIComponent(bodyText)}`;
-
-  smsBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-
-    // 1) Web Share nativo si existe (ideal en móviles modernos)
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          text: bodyText,
-          url: url
+        // Función para mostrar/ocultar chatbot
+        chatbotIcon.addEventListener('click', function() {
+            chatbotContainer.style.display = 'flex';
+            chatbotIcon.style.display = 'none';
+            
+            if (!initialMessageShown) {
+                setTimeout(() => {
+                    addBotMessage("¡Hola! 👋 Soy **Emily**, tu asistente de IA para Aiviralana.\n\n**🎉 ¡OFERTA ESPECIAL!**\nRegistro **100% GRATUITO por 7 días** - Sin tarjeta de crédito - Sin compromiso\n\n**🚀 Para comenzar:**\n1. Mira el tutorial en la página\n2. Regístrate GRATIS aquí: https://aiviraldownline.com/?id=ROCA25\n3. ¡Disfruta tu prueba de 7 días!\n\n**💬 Soporte personal:** Conéctate con Ana Romo por WhatsApp: https://wa.me/524776152686\n\n¿En qué puedo ayudarte hoy?");
+                    initialMessageShown = true;
+                }, 300);
+            }
         });
-        return;
-      } catch (err) {
-        // si cancela o falla, pasa a SMS
-      }
-    }
 
-    // 2) Abrir Mensajes
-    window.location.href = smsHref;
+        chatbotClose.addEventListener('click', function() {
+            chatbotContainer.style.display = 'none';
+            chatbotIcon.style.display = 'flex';
+        });
 
-    // 3) Fallback: copiar al portapapeles
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(bodyText);
-      }
-    } catch (_) {}
-  });
-})();
-</script>
+        // Función para agregar mensaje del usuario
+        function addUserMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user-message';
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
 
+        // Función para agregar mensaje del bot
+        function addBotMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot-message';
+            
+            // Formatear texto con markdown básico
+            let formattedText = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '<br>');
+            
+            messageDiv.innerHTML = formattedText;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Función para procesar mensaje
+        function processMessage(message) {
+            const lowerMessage = message.toLowerCase();
+            let response = knowledgeBase.default;
+            
+            // Buscar coincidencias
+            if (lowerMessage.includes('hola') || lowerMessage.includes('hi') || lowerMessage.includes('buenas')) {
+                response = knowledgeBase["hola"];
+            } else if (lowerMessage.includes('cómo me registro gratis') || lowerMessage.includes('registro gratis') || lowerMessage.includes('registrarme gratis') || lowerMessage.includes('prueba gratis')) {
+                response = knowledgeBase["cómo me registro gratis"];
+            } else if (lowerMessage.includes('cuánto cuesta después') || lowerMessage.includes('después de prueba') || lowerMessage.includes('despues de prueba') || lowerMessage.includes('después de 7')) {
+                response = knowledgeBase["cuánto cuesta después de 7 días"];
+            } else if (lowerMessage.includes('cómo contacto a ana') || lowerMessage.includes('contactar a ana') || lowerMessage.includes('hablar con ana') || lowerMessage.includes('ana romo')) {
+                response = knowledgeBase["cómo contacto a ana"];
+            } else if (lowerMessage.includes('dónde está el tutorial') || lowerMessage.includes('ver tutorial') || lowerMessage.includes('tutorial') || lowerMessage.includes('video')) {
+                response = knowledgeBase["dónde está el tutorial"];
+            } else if (lowerMessage.includes('qué es') || lowerMessage.includes('que es') || lowerMessage.includes('explica')) {
+                response = knowledgeBase["qué es"];
+            } else if (lowerMessage.includes('automatizar') || lowerMessage.includes('automatización') || lowerMessage.includes('sistema')) {
+                response = knowledgeBase["automatizar"];
+            } else if (lowerMessage.includes('matriz') || lowerMessage.includes('3x8') || lowerMessage.includes('ingresos')) {
+                response = knowledgeBase["matriz"];
+            } else if (lowerMessage.includes('ganar') || lowerMessage.includes('dinero') || lowerMessage.includes('ganancias')) {
+                response = knowledgeBase["ganar"];
+            } else if (lowerMessage.includes('gracias') || lowerMessage.includes('thank you')) {
+                response = knowledgeBase["gracias"];
+            } else if (lowerMessage.includes('adiós') || lowerMessage.includes('chao') || lowerMessage.includes('bye')) {
+                response = knowledgeBase["adiós"];
+            } else if (lowerMessage.includes('28') || lowerMessage.includes('$')) {
+                response = knowledgeBase["28"];
+            }
+            
+            // Mostrar respuesta
+            setTimeout(() => {
+                addBotMessage(response);
+                
+                // Mostrar botones CTA siempre
+                setTimeout(() => {
+                    ctaButtons.style.display = 'flex';
+                }, 500);
+            }, 800);
+        }
+
+        // Función para enviar mensaje
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message === '') return;
+            
+            // Agregar mensaje del usuario
+            addUserMessage(message);
+            chatbotInput.value = '';
+            
+            // Mostrar indicador de "escribiendo"
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'message bot-message';
+            typingIndicator.innerHTML = '<em>Emily está escribiendo...</em>';
+            chatbotMessages.appendChild(typingIndicator);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            
+            // Procesar mensaje después de un breve retraso
+            setTimeout(() => {
+                chatbotMessages.removeChild(typingIndicator);
+                processMessage(message);
+            }, 1000);
+        }
+
+        // Event listeners para enviar mensaje
+        chatbotSend.addEventListener('click', sendMessage);
+        
+        chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Event listeners para respuestas rápidas
+        quickReplyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const reply = this.getAttribute('data-reply');
+                chatbotInput.value = reply;
+                sendMessage();
+            });
+        });
+
+        // Auto-abrir chatbot después de 5 segundos
+        setTimeout(() => {
+            if (!initialMessageShown) {
+                // Añadir animación de pulso
+                chatbotIcon.style.animation = 'pulse 2s infinite';
+                
+                // Crear estilo para la animación
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes pulse {
+                        0% { transform: scale(1); box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4); }
+                        50% { transform: scale(1.1); box-shadow: 0 6px 20px rgba(64, 224, 208, 0.8); }
+                        100% { transform: scale(1); box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }, 5000);
+
+        // Auto-abrir en móviles después de 10 segundos
+        if (window.innerWidth <= 768) {
+            setTimeout(() => {
+                if (!initialMessageShown) {
+                    chatbotIcon.click();
+                }
+            }, 10000);
+        }
+
+        // Código JavaScript para animaciones de imágenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.money-image');
+            const imagesContainer = document.getElementById('imagesContainer');
+            
+            // Animación de entrada para las imágenes con efecto escalonado
+            function animateImages() {
+                images.forEach((image, index) => {
+                    // Retraso escalonado para cada imagen
+                    setTimeout(() => {
+                        image.classList.add('visible');
+                        
+                        // Agregar efecto adicional después de que la imagen sea visible
+                        setTimeout(() => {
+                            image.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                        }, 300);
+                    }, index * 400);
+                });
+            }
+            
+            // Observador de intersección mejorado
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animación de deslizamiento suave
+                        imagesContainer.style.transition = 'all 1s ease-out';
+                        imagesContainer.style.transform = 'translateY(0)';
+                        
+                        // Iniciar animación de imágenes
+                        animateImages();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            // Observar el contenedor de imágenes
+            if (imagesContainer) {
+                imagesContainer.style.transform = 'translateY(50px)';
+                imagesContainer.style.opacity = '0.8';
+                observer.observe(imagesContainer);
+            }
+            
+            // Efecto de conteo animado mejorado
+            const countElement = document.querySelector('.count-animation');
+            if (countElement) {
+                let count = 0;
+                const target = 25;
+                const duration = 1500;
+                const increment = target / (duration / 16);
+                
+                const updateCount = () => {
+                    if (count < target) {
+                        count += increment;
+                        if (count > target) count = target;
+                        countElement.textContent = `$${Math.round(count)}`;
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        // Efecto final cuando termina el conteo
+                        countElement.style.textShadow = '0 0 25px rgba(255, 215, 0, 0.9)';
+                    }
+                };
+                
+                // Iniciar animación cuando la sección sea visible
+                const countObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCount();
+                            countObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                countObserver.observe(countElement);
+            }
+            
+            // Animación para botones de compartir con efecto de onda
+            const shareButtons = document.querySelectorAll('.share-button');
+            if (shareButtons.length > 0) {
+                const shareObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            shareButtons.forEach((button, index) => {
+                                setTimeout(() => {
+                                    button.style.animation = 'slideIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+                                    
+                                    // Efecto de onda adicional
+                                    setTimeout(() => {
+                                        button.style.transform = 'translateY(0) scale(1.05)';
+                                        setTimeout(() => {
+                                            button.style.transform = 'translateY(0) scale(1)';
+                                        }, 200);
+                                    }, 600);
+                                }, index * 300);
+                            });
+                            shareObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.2 });
+                
+                const shareSection = document.querySelector('.share-section');
+                if (shareSection) {
+                    shareObserver.observe(shareSection);
+                }
+            }
+            
+            // Efecto de scroll suave para toda la página
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Contador para clics en botón de registro
+            const freeTrialButton = document.querySelector('.free-trial-button');
+            if (freeTrialButton) {
+                freeTrialButton.addEventListener('click', function() {
+                    // Puedes agregar aquí tracking de Google Analytics o similares
+                    console.log('Clic en botón de registro GRATIS');
+                });
+            }
+            
+            // Contador para clics en botón de WhatsApp
+            const whatsappButtons = document.querySelectorAll('.whatsapp-contact-button');
+            whatsappButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Clic en botón de WhatsApp con Ana');
+                });
+            });
+            
+            // Contador para clics en botón English Presentation
+            const englishButton = document.querySelector('.english-button');
+            if (englishButton) {
+                englishButton.addEventListener('click', function() {
+                    console.log('Clic en botón English Presentation');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
