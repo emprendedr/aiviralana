@@ -20,6 +20,9 @@
             --light-bg: #2c5364;
             --text-light: #f0f8ff;
             --text-muted: #b0e0e6;
+            --success-color: #25D366;
+            --warning-color: #FFA726;
+            --info-color: #29B6F6;
         }
         
         * {
@@ -70,6 +73,23 @@
             transition: all 0.3s ease;
             text-align: center;
             gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+        
+        .menu-btn:hover::before {
+            left: 100%;
         }
         
         .menu-btn-primary {
@@ -85,14 +105,94 @@
         }
         
         .menu-btn-tertiary {
-            background: linear-gradient(135deg, #25D366, #128C7E);
+            background: linear-gradient(135deg, var(--success-color), #128C7E);
             color: white;
             box-shadow: 0 4px 0 #0FAF5F, 0 8px 20px rgba(37, 211, 102, 0.4);
         }
         
         .menu-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 0 rgba(0,0,0,0.2), 0 12px 25px rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 0 rgba(0,0,0,0.2), 0 15px 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* ===== MODAL PARA VIDEOS ===== */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .video-modal.active {
+            display: flex;
+        }
+        
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            background: var(--dark-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            animation: slideUp 0.4s ease;
+        }
+        
+        .video-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: var(--medium-bg);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .video-modal-title {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .video-modal-close {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.8rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .video-modal-close:hover {
+            background: rgba(255, 107, 107, 0.2);
+            color: var(--secondary-color);
+            transform: rotate(90deg);
+        }
+        
+        .video-modal-body {
+            padding: 1.5rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         
         /* ===== HEADER OPTIMIZADO ===== */
@@ -156,52 +256,92 @@
             max-width: 800px;
         }
         
-        /* ===== BOTONES PRINCIPALES ===== */
+        /* ===== BOTONES PRINCIPALES MEJORADOS ===== */
         .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
+            padding: 1.1rem 2.8rem;
+            border-radius: 15px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            top: 0;
+            overflow: hidden;
             text-align: center;
             margin: 0.5rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--secondary-color), #FF8E53);
+            background: linear-gradient(135deg, var(--secondary-color), #FF8E53, var(--accent-color));
+            background-size: 200% 200%;
             color: white;
-            box-shadow: 0 6px 0 #CC5555, 0 10px 25px rgba(255, 107, 107, 0.4);
-            animation: pulseButton 2s infinite;
+            animation: gradientShift 3s ease infinite, pulseGlow 2s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         .btn-secondary {
-            background: linear-gradient(135deg, #25D366, #128C7E);
+            background: linear-gradient(135deg, var(--success-color), #128C7E, #25D366);
+            background-size: 200% 200%;
             color: white;
-            box-shadow: 0 6px 0 #0FAF5F, 0 10px 25px rgba(37, 211, 102, 0.4);
+            animation: gradientShift 4s ease infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-cta {
+            background: linear-gradient(135deg, #FF0080, #FF8C00, #40E0D0);
+            background-size: 200% 200%;
+            color: white;
+            animation: gradientShift 5s ease infinite, pulseGlow 1.5s ease-in-out infinite;
+            font-size: 1.3rem;
+            padding: 1.3rem 3.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .btn:hover {
-            top: -3px;
-            transform: scale(1.05);
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 12px 0 rgba(0, 0, 0, 0.2), 0 25px 60px rgba(0, 0, 0, 0.5);
+            animation-play-state: paused;
         }
         
-        .btn-primary:hover {
-            box-shadow: 0 8px 0 #CC5555, 0 15px 40px rgba(255, 107, 107, 0.8);
+        .btn:active {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.3);
         }
         
-        .btn-secondary:hover {
-            box-shadow: 0 8px 0 #0FAF5F, 0 15px 40px rgba(37, 211, 102, 0.6);
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
-        @keyframes pulseButton {
-            0%, 100% { box-shadow: 0 6px 0 #CC5555, 0 10px 25px rgba(255, 107, 107, 0.4); }
-            50% { box-shadow: 0 6px 0 #CC5555, 0 10px 35px rgba(255, 107, 107, 0.7); }
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2), 0 15px 40px rgba(255, 107, 107, 0.5);
+            }
+            50% { 
+                box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2), 0 15px 50px rgba(255, 107, 107, 0.8);
+            }
         }
         
         /* ===== CONTADOR PROFESIONAL (24 HORAS) - CORREGIDO ===== */
@@ -344,12 +484,6 @@
             left: 0;
             font-weight: bold;
             font-size: 1.2rem;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
         
         /* ===== SECCIÓN DE ESTRUCTURA DE PAGOS ===== */
@@ -518,19 +652,40 @@
             padding: 3rem 2rem;
             border-radius: 15px;
             margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(64, 224, 208, 0.5);
+        }
+        
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
         }
         
         .cta-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #7fffd4;
             margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(127, 255, 212, 0.5);
         }
         
         .cta-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
+            font-size: 1.3rem;
+            color: var(--text-light);
             max-width: 700px;
             margin: 0 auto 2rem;
+            font-weight: 500;
         }
         
         /* ===== FOOTER ===== */
@@ -561,18 +716,39 @@
             .sub-tagline { font-size: 1rem; padding: 0.8rem; }
             .section { padding: 1.5rem; }
             .section-title { font-size: 1.5rem; }
-            .cta-title { font-size: 1.7rem; }
-            .btn { width: 100%; margin: 0.5rem 0; }
+            .cta-title { font-size: 1.8rem; }
+            .btn { width: 100%; margin: 0.5rem 0; padding: 1rem 1.5rem; }
             .benefits-grid { grid-template-columns: 1fr; }
             .countdown-unit { min-width: 80px; padding: 1rem 0.5rem; }
             .countdown-number { font-size: 2.2rem; }
             .menu-buttons { flex-direction: column; }
             .menu-btn { width: 100%; margin-bottom: 0.5rem; }
             .payment-levels { grid-template-columns: 1fr; }
+            .video-modal-content { width: 95%; }
         }
     </style>
 </head>
 <body>
+    <!-- MODAL PARA VIDEOS -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <div class="video-modal-title" id="modalTitle">Grabación de Zoom</div>
+                <button class="video-modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="video-modal-body">
+                <div class="video-container">
+                    <iframe id="modalVideo" 
+                            src="" 
+                            title="Video Player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
         <!-- IMAGEN PRINCIPAL -->
         <img src="https://github.com/emprendedr/aiviralana/blob/main/E8F3902F-4F7C-4ADF-9618-5CD94E8BD807.png?raw=true" 
@@ -584,14 +760,12 @@
             <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
                class="menu-btn menu-btn-primary" 
                target="_blank">
-                🇺🇸 Presentación en Inglés
+                🇺🇸 English Presentation
             </a>
             
-            <a href="https://youtu.be/7_5J0zVVJeU" 
-               class="menu-btn menu-btn-secondary" 
-               target="_blank">
+            <button class="menu-btn menu-btn-secondary" id="zoomVideoBtn">
                 📹 Grabación de Zoom
-            </a>
+            </button>
             
             <a href="https://www.canva.com/design/DAG8PbAxxn8/M3aOVhlhYAp4399dkuZDcw/view?utm_content=DAG8PbAxxn8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h786681e006" 
                class="menu-btn menu-btn-tertiary" 
@@ -619,11 +793,11 @@
                     </div>
                 </div>
                 
-                <!-- Botón principal único -->
+                <!-- Botón principal mejorado -->
                 <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
                    class="btn btn-primary" 
                    target="_blank">
-                    🚀 Comienza GRATIS por 7 días
+                    🚀 COMIENZA GRATIS POR 7 DÍAS
                 </a>
             </div>
         </header>
@@ -708,9 +882,8 @@
             
             <div style="text-align: center; margin-top: 2rem;">
                 <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
-                   class="btn btn-primary" 
-                   target="_blank"
-                   style="font-size: 1.2rem; padding: 1rem 2.5rem;">
+                   class="btn btn-cta" 
+                   target="_blank">
                     🚀 OCUPAR MI POSICIÓN EN LA MATRIZ
                 </a>
             </div>
@@ -727,7 +900,7 @@
                 <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
                    class="btn btn-primary" 
                    target="_blank">
-                    🎯 Quiero ser uno de los 10
+                    🎯 QUIERO SER UNO DE LOS 10
                 </a>
             </div>
         </section>
@@ -787,27 +960,28 @@
             <a href="https://wa.me/524776152686?text=¡Hola Ana! Quiero comenzar con AI Viral Downline" 
                class="btn btn-secondary" 
                target="_blank">
-                💬 WhatsApp con Ana
+                💬 WHATSAPP CON ANA
             </a>
         </section>
 
         <!-- CALL TO ACTION FINAL -->
         <div class="cta-container">
-            <h2 class="cta-title">¡Tu Momento es Ahora!</h2>
-            <p class="cta-subtitle">
-                Posiciónate en los primeros lugares. La matriz se llena rápido y los mejores spots son limitados.
-            </p>
-            
-            <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
-               class="btn btn-primary" 
-               target="_blank"
-               style="font-size: 1.3rem; padding: 1.2rem 3rem;">
-                🚀 ACTIVAR PRUEBA GRATIS + 5 DÍAS DE CLASE BONO
-            </a>
-            
-            <p style="color: var(--accent-color); margin-top: 1rem; font-style: italic;">
-                100% Gratis • 7 Días • Sin Tarjeta • + Bono Exclusivo 24h
-            </p>
+            <div class="cta-content">
+                <h2 class="cta-title">¡Tu Momento es Ahora!</h2>
+                <p class="cta-subtitle">
+                    Posiciónate en los primeros lugares. La matriz se llena rápido y los mejores spots son limitados.
+                </p>
+                
+                <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
+                   class="btn btn-cta" 
+                   target="_blank">
+                    🚀 ACTIVAR PRUEBA GRATIS + 5 DÍAS DE CLASE BONO
+                </a>
+                
+                <p style="color: var(--accent-color); margin-top: 1.5rem; font-style: italic; font-size: 1.1rem;">
+                    100% Gratis • 7 Días • Sin Tarjeta • + Bono Exclusivo 24h
+                </p>
+            </div>
         </div>
 
         <!-- FOOTER -->
@@ -937,11 +1111,65 @@
                 observer.observe(number);
             });
             
-            // Tracking de clicks en botones del menú
-            const menuButtons = document.querySelectorAll('.menu-btn');
-            menuButtons.forEach(button => {
+            // ===== MODAL PARA VIDEO DE ZOOM =====
+            const zoomVideoBtn = document.getElementById('zoomVideoBtn');
+            const videoModal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const modalTitle = document.getElementById('modalTitle');
+            const closeModal = document.getElementById('closeModal');
+            
+            // Configurar el botón de video de Zoom
+            zoomVideoBtn.addEventListener('click', function() {
+                modalTitle.textContent = 'Grabación de la Video Llamada de Zoom';
+                modalVideo.src = 'https://www.youtube.com/embed/7_5J0zVVJeU?autoplay=1&rel=0';
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Cerrar modal
+            closeModal.addEventListener('click', function() {
+                videoModal.classList.remove('active');
+                modalVideo.src = '';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Cerrar modal al hacer clic fuera
+            videoModal.addEventListener('click', function(e) {
+                if (e.target === videoModal) {
+                    videoModal.classList.remove('active');
+                    modalVideo.src = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Cerrar modal con tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                    videoModal.classList.remove('active');
+                    modalVideo.src = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Efectos adicionales para botones
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.08)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Tracking de clicks
+            const allButtons = document.querySelectorAll('.btn, .menu-btn');
+            allButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    console.log('Click en menú: ' + this.textContent.trim());
+                    const buttonText = this.textContent.trim();
+                    console.log(`Click en botón: ${buttonText}`);
+                    // Aquí puedes agregar Google Analytics o otro tracking
                 });
             });
         });
