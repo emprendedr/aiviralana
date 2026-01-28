@@ -128,6 +128,13 @@
             box-shadow: 0 6px 0 #0FAF5F, 0 10px 25px rgba(37, 211, 102, 0.4);
         }
         
+        .btn-english {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            box-shadow: 0 6px 0 #0d1b3e, 0 10px 25px rgba(30, 60, 114, 0.4);
+            margin-top: 1.5rem;
+        }
+        
         .btn:hover {
             top: -3px;
             transform: scale(1.05);
@@ -141,9 +148,105 @@
             box-shadow: 0 8px 0 #0FAF5F, 0 15px 40px rgba(37, 211, 102, 0.6);
         }
         
+        .btn-english:hover {
+            box-shadow: 0 8px 0 #0d1b3e, 0 15px 40px rgba(30, 60, 114, 0.8);
+        }
+        
         @keyframes pulseButton {
             0%, 100% { box-shadow: 0 6px 0 #CC5555, 0 10px 25px rgba(255, 107, 107, 0.4); }
             50% { box-shadow: 0 6px 0 #CC5555, 0 10px 35px rgba(255, 107, 107, 0.7); }
+        }
+        
+        /* ===== CONTADOR PROFESIONAL ===== */
+        .countdown-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+            max-width: 800px;
+        }
+        
+        .countdown-title {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .countdown-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-unit {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 80px;
+        }
+        
+        .countdown-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+        }
+        
+        .bonus-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.15));
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid var(--accent-color);
+        }
+        
+        .bonus-title {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .bonus-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            list-style-type: none;
+        }
+        
+        .bonus-list li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .bonus-list li:before {
+            content: "✓";
+            color: #25D366;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
         
         /* ===== SECCIONES UNIFICADAS ===== */
@@ -273,6 +376,17 @@
             font-size: 0.9rem;
         }
         
+        /* ===== IMAGEN PRINCIPAL ===== */
+        .main-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            display: block;
+            border-radius: 15px;
+            border: 3px solid rgba(64, 224, 208, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .container { padding: 1rem; }
@@ -284,19 +398,33 @@
             .cta-title { font-size: 1.7rem; }
             .btn { width: 100%; margin: 0.5rem 0; }
             .benefits-grid { grid-template-columns: 1fr; }
+            .countdown-unit { min-width: 70px; padding: 0.8rem; }
+            .countdown-number { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- IMAGEN PRINCIPAL -->
+        <img src="https://github.com/emprendedr/aiviralana/blob/main/E8F3902F-4F7C-4ADF-9618-5CD94E8BD807.png?raw=true" 
+             alt="AI Viral Downline" 
+             class="main-image">
+        
         <!-- HERO SECTION OPTIMIZADA -->
         <header class="hero-section">
             <div class="hero-content">
                 <h1 class="main-title">AI Viral Downline</h1>
-                <p class="tagline">Automatiza tus ingresos con Inteligencia Artificial</p>
+                <p class="tagline">Automatiza tus ingresos, tu negocio, tu contenido, tu marca personal con Inteligencia Artificial</p>
                 <p class="sub-tagline">
                     Sin experiencia necesaria. Emily (tu IA) hace el trabajo repetitivo mientras tú generas ingresos automáticos.
                 </p>
+                
+                <!-- Botón en inglés -->
+                <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
+                   class="btn btn-english" 
+                   target="_blank">
+                    🤖 Automate your Income with this simple system - English Presentation
+                </a>
                 
                 <!-- Botón principal único -->
                 <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
@@ -306,6 +434,62 @@
                 </a>
             </div>
         </header>
+
+        <!-- VIDEO DESPUÉS DEL PRIMER BOTÓN -->
+        <section class="section">
+            <h2 class="section-title">🎥 Grabación de la video llamada de zoom</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem; color: var(--text-muted);">
+                Presentación completa del sistema AI Viral Downline
+            </p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/7_5J0zVVJeU?si=8sKc0d5bT-RvAr51"
+                        title="Grabación de la video llamada de zoom"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- CONTADOR PROFESIONAL -->
+        <div class="countdown-container">
+            <h3 class="countdown-title">⏳ OFERTA POR TIEMPO LIMITADO</h3>
+            <p class="countdown-subtitle">Únete ahora y asegura tu posición antes de que se cierre esta oportunidad</p>
+            
+            <div class="countdown-timer">
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="days">05</div>
+                    <div class="countdown-label">Días</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="hours">12</div>
+                    <div class="countdown-label">Horas</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="minutes">45</div>
+                    <div class="countdown-label">Minutos</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="seconds">30</div>
+                    <div class="countdown-label">Segundos</div>
+                </div>
+            </div>
+            
+            <div class="bonus-box">
+                <h4 class="bonus-title">🎁 BONO EXCLUSIVO POR UNIRTE AHORA</h4>
+                <p style="text-align: center; margin-bottom: 1rem; color: var(--accent-color);">
+                    Acceso a 5 días de clase GRATIS donde aprenderás:
+                </p>
+                <ul class="bonus-list">
+                    <li>Cómo usar la IA correctamente para automatizar tu negocio</li>
+                    <li>Configurar tus redes sociales con herramientas de marketing avanzadas</li>
+                    <li>Conocer todos los recursos dentro del sistema para escalar tu negocio</li>
+                    <li>Estrategias para llevar tu marca personal al siguiente nivel</li>
+                    <li>Y mucho más que solo verás cuando estés adentro del sistema</li>
+                </ul>
+                <p style="text-align: center; margin-top: 1rem; font-style: italic; color: var(--text-muted);">
+                    Este bono solo está disponible para los que actúen ahora
+                </p>
+            </div>
+        </div>
 
         <!-- SECCIÓN DE OPORTUNIDAD ÚNICA -->
         <section class="section opportunity-card">
@@ -323,12 +507,15 @@
             </div>
         </section>
 
-        <!-- VIDEO PRINCIPAL -->
+        <!-- VIDEO: COMO FUNCIONA EL SISTEMA -->
         <section class="section">
-            <h2 class="section-title">📹 Presentación del Sistema</h2>
+            <h2 class="section-title">🎬 Como Funciona este Sistema</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem; color: var(--text-muted);">
+                Descubre paso a paso cómo funciona AI Viral Downline y cómo puedes empezar a generar ingresos automáticos
+            </p>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/IBhOkKNunkc"
-                        title="Sistema AI Viral Downline"
+                <iframe src="https://www.youtube.com/embed/A8bGvBjWgkw?si=vAns1ECTp2TFOVOv"
+                        title="Como Funciona este Sistema"
                         allowfullscreen>
                 </iframe>
             </div>
@@ -380,20 +567,6 @@
             </div>
         </section>
 
-        <!-- VIDEO TUTORIAL -->
-        <section class="section">
-            <h2 class="section-title">🎬 Tutorial Paso a Paso</h2>
-            <p style="text-align: center; margin-bottom: 1.5rem; color: var(--text-muted);">
-                Mira este tutorial completo antes de registrarte para éxito garantizado.
-            </p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/7x5P219TT8g?si=SDakgg-pAY8N3hJy"
-                        title="Tutorial de Registro"
-                        allowfullscreen>
-                </iframe>
-            </div>
-        </section>
-
         <!-- CONTACTO DIRECTO -->
         <section class="section" style="text-align: center;">
             <h2 class="section-title">👋 ¿Tienes dudas?</h2>
@@ -418,11 +591,11 @@
                class="btn btn-primary" 
                target="_blank"
                style="font-size: 1.3rem; padding: 1.2rem 3rem;">
-                🚀 ACTIVAR PRUEBA GRATIS
+                🚀 ACTIVAR PRUEBA GRATIS + 5 DÍAS DE CLASE BONO
             </a>
             
             <p style="color: var(--accent-color); margin-top: 1rem; font-style: italic;">
-                100% Gratis • 7 Días • Sin Tarjeta
+                100% Gratis • 7 Días • Sin Tarjeta • + Bono Exclusivo
             </p>
         </div>
 
@@ -436,9 +609,39 @@
     </div>
 
     <script>
-        // Animaciones simples
+        // Contador regresivo profesional
+        function updateCountdown() {
+            const now = new Date().getTime();
+            // Establece la fecha límite (5 días desde ahora)
+            const countdownDate = new Date(now + (5 * 24 * 60 * 60 * 1000)).getTime();
+            const distance = countdownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Añade cero a la izquierda si es necesario
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Si el contador llega a cero, reiniciar
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('.countdown-title').textContent = "¡OFERTA CERRADA!";
+                document.querySelector('.countdown-subtitle').textContent = "La oferta ha finalizado. Vuelve pronto para nuevas oportunidades.";
+            }
+        }
+        
+        // Actualizar contador cada segundo
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Llamar inmediatamente
+        
+        // Animaciones para números
         document.addEventListener('DOMContentLoaded', function() {
-            // Animación para números
+            // Animación para números de ingresos
             const numbers = document.querySelectorAll('.highlight-number');
             numbers.forEach(number => {
                 const target = parseInt(number.textContent.replace(/[^0-9]/g, ''));
@@ -468,12 +671,24 @@
             });
             
             // Contador de clicks
-            const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+            const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-english');
             buttons.forEach(button => {
                 button.addEventListener('click', function() {
                     console.log('Click en: ' + this.textContent.trim());
+                    // Aquí puedes agregar Google Analytics o otro tracking
                 });
             });
+            
+            // Efecto de parpadeo para el contador cuando quedan pocos segundos
+            setInterval(() => {
+                const seconds = parseInt(document.getElementById('seconds').textContent);
+                if (seconds <= 10) {
+                    document.getElementById('seconds').style.animation = 'none';
+                    setTimeout(() => {
+                        document.getElementById('seconds').style.animation = 'countPulse 0.5s ease-in-out infinite';
+                    }, 10);
+                }
+            }, 1000);
         });
     </script>
 </body>
