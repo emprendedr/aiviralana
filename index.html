@@ -159,6 +159,126 @@
             font-weight: 600;
         }
 
+        /* ===== SECCIÓN: OPORTUNIDAD EXCLUSIVA ===== */
+        .exclusive-opportunity {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 193, 7, 0.15));
+            border: 2px solid #FF6B6B;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: pulseBorder 3s infinite alternate;
+        }
+        
+        @keyframes pulseBorder {
+            0% { border-color: #FF6B6B; box-shadow: 0 0 20px rgba(255, 107, 107, 0.2); }
+            50% { border-color: #FFD700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+            100% { border-color: #FF6B6B; box-shadow: 0 0 20px rgba(255, 107, 107, 0.2); }
+        }
+        
+        .exclusive-opportunity::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 193, 7, 0.1) 0%, transparent 60%);
+            z-index: 0;
+        }
+        
+        .exclusive-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .exclusive-title {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        .exclusive-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 0.5rem 2rem;
+            border-radius: 25px;
+            margin-bottom: 1.5rem;
+            transform: rotate(-2deg);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            border: 2px solid white;
+        }
+        
+        .exclusive-message {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+        
+        .exclusive-highlight {
+            color: #FFD700;
+            font-weight: bold;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+        }
+        
+        .exclusive-list {
+            list-style: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding-left: 0;
+        }
+        
+        .exclusive-list li {
+            margin-bottom: 1rem;
+            padding-left: 2.5rem;
+            position: relative;
+            color: #e0ffff;
+            font-size: 1.1rem;
+        }
+        
+        .exclusive-list li:before {
+            content: '🚀';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .urgency-note {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #FF4444;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            text-align: center;
+        }
+        
+        .urgency-note h4 {
+            color: #FFD700;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .urgency-note p {
+            color: #fff;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
         /* ===== NUEVA SECCIÓN: IMAGINA GENERAR INGRESOS ===== */
         .imagine-section {
             background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 193, 7, 0.1));
@@ -1424,7 +1544,20 @@
                 font-size: 2rem;
             }
             
-            /* Responsive para nueva sección */
+            /* Responsive para nuevas secciones */
+            .exclusive-title {
+                font-size: 1.6rem;
+            }
+            
+            .exclusive-badge {
+                font-size: 1rem;
+                padding: 0.4rem 1.5rem;
+            }
+            
+            .exclusive-message {
+                font-size: 1.1rem;
+            }
+            
             .imagine-title {
                 font-size: 1.6rem;
             }
@@ -1495,6 +1628,12 @@
                 font-size: 1rem;
                 padding: 1rem 1.5rem;
             }
+            .exclusive-title {
+                font-size: 1.4rem;
+            }
+            .exclusive-message {
+                font-size: 1rem;
+            }
             .imagine-title {
                 font-size: 1.4rem;
             }
@@ -1512,8 +1651,8 @@
         <!-- Cabecera Actualizada con Aiviralana -->
         <header>
             <div class="header-content">
-                <!-- Botón English Presentation -->
-                <a href="https://aiviraldownline.com/?id=ROCA25" 
+                <!-- Botón English Presentation ACTUALIZADO -->
+                <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
                    class="english-button" 
                    target="_blank">
                     English Presentation
@@ -1528,31 +1667,39 @@
             </div>
         </header>
 
-        <!-- NUEVA SECCIÓN: Contacto Personalizado -->
-        <section class="section contact-personalized">
-            <div class="contact-content">
-                <h2 class="contact-title">¿Listo para Comenzar?</h2>
-                <p class="contact-description">
-                    ¡Hola! Soy <span style="color: #FFD700; font-weight: 600;">Ana Romo</span>, tu guía en este emocionante viaje con AI Viral Downline. Estoy aquí para ayudarte personalmente y responder todas tus preguntas.
+        <!-- NUEVA SECCIÓN: OPORTUNIDAD EXCLUSIVA -->
+        <section class="section exclusive-opportunity">
+            <div class="exclusive-content">
+                <h2 class="exclusive-title">OPORTUNIDAD EXCLUSIVA</h2>
+                
+                <div class="exclusive-badge">¡SÓLO 10 PERSONAS!</div>
+                
+                <p class="exclusive-message">
+                    Este sistema está siendo compartido con <span class="exclusive-highlight">10 personas</span> que quieran aprovechar este lanzamiento y todos sus beneficios. 
+                    <br><br>
+                    <strong>Toma acción y sé uno de los primeros 3 para el derrame.</strong> 
+                    <br><br>
+                    Esta es tu oportunidad de posicionarte antes que los demás.
                 </p>
                 
-                <div class="contact-info">
-                    <div class="contact-name">Ana Romo</div>
-                    <div class="contact-role">Tu Guía Personal en AI Viral Downline</div>
-                    <p style="color: #b0e0e6; margin-bottom: 1.5rem;">
-                        Conéctate conmigo directamente por WhatsApp para recibir orientación personalizada y comenzar tu prueba GRATUITA.
-                    </p>
-                    
-                    <!-- Botón de WhatsApp -->
-                    <a href="https://wa.me/524776152686?text=¡Hola Ana! Me interesa comenzar con AI Viral Downline. ¿Podrías guiarme con el registro GRATUITO de 7 días?" 
-                       class="whatsapp-contact-button" target="_blank">
-                        💬 Conéctate con Ana por WhatsApp
-                    </a>
+                <ul class="exclusive-list">
+                    <li><strong>Posición privilegiada</strong> en la matriz 3x8</li>
+                    <li><strong>Derrame garantizado</strong> a los primeros 3 registrados</li>
+                    <li><strong>Ingresos acelerados</strong> desde el primer día</li>
+                    <li><strong>Soporte personalizado</strong> de Ana Romo</li>
+                </ul>
+                
+                <div class="urgency-note">
+                    <h4>⏰ ¡OPORTUNIDAD LIMITADA!</h4>
+                    <p>Solo 10 espacios disponibles. Una vez completados, el acceso a este nivel de beneficios se cerrará.</p>
                 </div>
                 
-                <p style="color: #FFD700; font-size: 0.9rem; margin-top: 1rem;">
-                    <em>📱 Responde en minutos • 💬 Chat personalizado • 🎯 Orientación paso a paso</em>
-                </p>
+                <a href="https://aiviraldownline.com/?id=ROCA25" 
+                   class="free-trial-button" 
+                   target="_blank"
+                   style="margin-top: 1.5rem;">
+                    🚀 ¡QUIERO SER UNO DE LOS 10!
+                </a>
             </div>
         </section>
 
@@ -1723,7 +1870,7 @@
             </div>
         </section>
 
-        <!-- NUEVA SECCIÓN: Imagina generar ingresos de $25 -->
+        <!-- SECCIÓN: Imagina generar ingresos de $25 -->
         <section class="section imagine-section">
             <div class="imagine-content">
                 <h2 class="imagine-title">¡Imagina generar ingresos de $25 una y otra vez!</h2>
@@ -1763,6 +1910,34 @@
             </div>
         </section>
 
+        <!-- NUEVA SECCIÓN: Contacto Personalizado -->
+        <section class="section contact-personalized">
+            <div class="contact-content">
+                <h2 class="contact-title">¿Listo para Comenzar?</h2>
+                <p class="contact-description">
+                    ¡Hola! Soy <span style="color: #FFD700; font-weight: 600;">Ana Romo</span>, tu guía en este emocionante viaje con AI Viral Downline. Estoy aquí para ayudarte personalmente y responder todas tus preguntas.
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-name">Ana Romo</div>
+                    <div class="contact-role">Tu Guía Personal en AI Viral Downline</div>
+                    <p style="color: #b0e0e6; margin-bottom: 1.5rem;">
+                        Conéctate conmigo directamente por WhatsApp para recibir orientación personalizada y comenzar tu prueba GRATUITA.
+                    </p>
+                    
+                    <!-- Botón de WhatsApp -->
+                    <a href="https://wa.me/524776152686?text=¡Hola Ana! Me interesa comenzar con AI Viral Downline. ¿Podrías guiarme con el registro GRATUITO de 7 días?" 
+                       class="whatsapp-contact-button" target="_blank">
+                        💬 Conéctate con Ana por WhatsApp
+                    </a>
+                </div>
+                
+                <p style="color: #FFD700; font-size: 0.9rem; margin-top: 1rem;">
+                    <em>📱 Responde en minutos • 💬 Chat personalizado • 🎯 Orientación paso a paso</em>
+                </p>
+            </div>
+        </section>
+
         <!-- SECCIÓN ACTUALIZADA: Llamado a la Acción con Registro GRATIS -->
         <section class="cta-section">
             <h2 class="cta-title">¡Activa Tu Prueba GRATUITA de 7 Días!</h2>
@@ -1795,7 +1970,7 @@
                 </p>
             </div>
             
-            <!-- Video tutorial para inscripción exitosa -->
+            <!-- Video tutorial para inscripción exitosa ACTUALIZADO -->
             <section class="next-steps-section" style="margin: 2.5rem 0; background: transparent; border: none; padding: 0;">
                 <div class="steps-container">
                     <h3 class="steps-title">🎬 TUTORIAL PARA INSCRIPCIÓN EXITOSA</h3>
@@ -1803,9 +1978,9 @@
                         <strong>¡IMPORTANTE!</strong> Mira este tutorial completo antes de registrarte para asegurar una inscripción exitosa.
                     </p>
                     
-                    <!-- Video tutorial SOLO aquí -->
+                    <!-- Video tutorial ACTUALIZADO -->
                     <div class="video-wrapper" style="margin: 2rem 0;">
-                        <iframe src="https://www.youtube.com/embed/Gdy_rvXfcpA?si=5CgSBSRhHh5mkwxk"
+                        <iframe src="https://youtu.be/7x5P219TT8g?si=tapzlMhWgtWf6t7H"
                                 title="Tutorial Completo AI Viral Downline - Registro y Activación"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
@@ -1841,12 +2016,9 @@
                     </a>
                 </div>
             </section>
-            
-            <!-- Botón de Telegram después de la nueva información -->
-            <!-- REMOVIDO: Botón de Telegram eliminado según solicitud -->
         </section>
 
-        <!-- NUEVA SECCIÓN: Compartir en Redes Sociales ACTUALIZADA -->
+        <!-- SECCIÓN: Compartir en Redes Sociales -->
         <section class="section share-section">
             <div class="share-content">
                 <h2 class="share-title">¡Comparte y Gana!</h2>
@@ -1859,8 +2031,6 @@
                         <span class="share-icon">💬</span>
                         Compartir en WhatsApp
                     </a>
-                    
-                    <!-- REMOVIDO: Botón "Enviar por Mensaje" eliminado según solicitud -->
                 </div>
                 
                 <p class="share-note">
@@ -1870,7 +2040,7 @@
             </div>
         </section>
 
-        <!-- FOOTER (simplificado como solicitaste) -->
+        <!-- FOOTER -->
         <footer>
             <div class="footer-content">
                 <div class="footer-bottom">
