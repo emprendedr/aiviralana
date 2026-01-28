@@ -150,6 +150,12 @@
             border-left: 4px solid var(--secondary-color);
         }
         
+        /* ===== VIDEO ANTES DEL BOTÓN ===== */
+        .pre-button-video {
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        
         /* ===== BOTONES PRINCIPALES ===== */
         .btn {
             display: inline-block;
@@ -198,7 +204,7 @@
             50% { box-shadow: 0 6px 0 #CC5555, 0 10px 35px rgba(255, 107, 107, 0.7); }
         }
         
-        /* ===== CONTADOR PROFESIONAL (24 HORAS) ===== */
+        /* ===== CONTADOR PROFESIONAL (24 HORAS) - CORREGIDO ===== */
         .countdown-container {
             background: rgba(0, 0, 0, 0.4);
             border-radius: 15px;
@@ -220,6 +226,7 @@
             right: 0;
             height: 5px;
             background: linear-gradient(90deg, #FF6B6B, #FFD700, #40e0d0);
+            background-size: 200% 100%;
             animation: gradientShift 3s infinite alternate;
         }
         
@@ -341,7 +348,8 @@
         
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         /* ===== SECCIÓN DE ESTRUCTURA DE PAGOS ===== */
@@ -601,6 +609,16 @@
                     Sin experiencia necesaria. Emily (tu IA) hace el trabajo repetitivo mientras tú generas ingresos automáticos.
                 </p>
                 
+                <!-- VIDEO ANTES DEL BOTÓN -->
+                <div class="pre-button-video">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/A8bGvBjWgkw?si=vAns1ECTp2TFOVOv"
+                                title="Como Funciona este Sistema"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                
                 <!-- Botón principal único -->
                 <a href="https://aiviraldownline.com/lc.php?id=ROCA25" 
                    class="btn btn-primary" 
@@ -610,22 +628,22 @@
             </div>
         </header>
 
-        <!-- CONTADOR PROFESIONAL (24 HORAS) -->
+        <!-- CONTADOR PROFESIONAL (24 HORAS) - CORREGIDO -->
         <div class="countdown-container">
             <h3 class="countdown-title">⏳ OFERTA EXCLUSIVA - 24 HORAS LIMITE</h3>
             <p class="countdown-subtitle">Únete ahora y asegura tu posición + todos los bonos exclusivos antes de que se cierre esta oportunidad</p>
             
             <div class="countdown-timer">
                 <div class="countdown-unit">
-                    <div class="countdown-number" id="hours">24</div>
+                    <div class="countdown-number" id="countdown-hours">24</div>
                     <div class="countdown-label">Horas</div>
                 </div>
                 <div class="countdown-unit">
-                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-number" id="countdown-minutes">00</div>
                     <div class="countdown-label">Minutos</div>
                 </div>
                 <div class="countdown-unit">
-                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-number" id="countdown-seconds">00</div>
                     <div class="countdown-label">Segundos</div>
                 </div>
             </div>
@@ -695,20 +713,6 @@
                    style="font-size: 1.2rem; padding: 1rem 2.5rem;">
                     🚀 OCUPAR MI POSICIÓN EN LA MATRIZ
                 </a>
-            </div>
-        </section>
-
-        <!-- VIDEO: COMO FUNCIONA EL SISTEMA -->
-        <section class="section">
-            <h2 class="section-title">🎬 Como Funciona este Sistema</h2>
-            <p style="text-align: center; margin-bottom: 1.5rem; color: var(--text-muted);">
-                Descubre paso a paso cómo funciona AI Viral Downline y cómo puedes empezar a generar ingresos automáticos
-            </p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/A8bGvBjWgkw?si=vAns1ECTp2TFOVOv"
-                        title="Como Funciona este Sistema"
-                        allowfullscreen>
-                </iframe>
             </div>
         </section>
 
@@ -816,51 +820,95 @@
     </div>
 
     <script>
-        // Contador regresivo profesional de 24 HORAS
-        function updateCountdown() {
-            const now = new Date().getTime();
-            // Establece la fecha límite (24 horas desde ahora)
-            const countdownDate = new Date(now + (24 * 60 * 60 * 1000)).getTime();
-            const distance = countdownDate - now;
+        // CONTADOR REGRESIVO DE 24 HORAS - CORREGIDO
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar el tiempo límite (24 horas desde ahora)
+            const countdownDuration = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+            const endTime = new Date().getTime() + countdownDuration;
             
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Elementos del contador
+            const hoursElement = document.getElementById('countdown-hours');
+            const minutesElement = document.getElementById('countdown-minutes');
+            const secondsElement = document.getElementById('countdown-seconds');
+            const countdownContainer = document.querySelector('.countdown-container');
             
-            // Añade cero a la izquierda si es necesario
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            
-            // Efecto de urgencia cuando quedan pocas horas
-            if (hours < 6) {
-                document.querySelector('.countdown-container').style.borderColor = '#FF6B6B';
-                document.querySelector('.countdown-container').style.animation = 'pulseBorder 1s infinite alternate';
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
                 
-                if (hours < 3) {
-                    document.querySelectorAll('.countdown-number').forEach(el => {
-                        el.style.color = '#FF6B6B';
-                    });
+                // Si el tiempo ya terminó
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    hoursElement.textContent = '00';
+                    minutesElement.textContent = '00';
+                    secondsElement.textContent = '00';
+                    
+                    // Cambiar mensaje
+                    document.querySelector('.countdown-title').innerHTML = "⏰ ¡TIEMPO AGOTADO!";
+                    document.querySelector('.countdown-subtitle').textContent = "La oferta de 24 horas ha finalizado. Contacta a Ana para verificar disponibilidad.";
+                    
+                    // Cambiar estilo del contenedor
+                    countdownContainer.style.borderColor = '#FF0000';
+                    countdownContainer.style.background = 'rgba(255, 0, 0, 0.1)';
+                    
+                    // Cambiar mensaje del bono
+                    const bonusBox = document.querySelector('.bonus-box');
+                    bonusBox.innerHTML = `
+                        <h4 class="bonus-title">⏰ OFERTA FINALIZADA</h4>
+                        <p style="text-align: center; margin-bottom: 1rem; color: #FF6B6B; font-weight: 600;">
+                            El bono de 24 horas ya no está disponible
+                        </p>
+                        <p style="text-align: center; color: var(--text-light);">
+                            Contacta a Ana para verificar si aún hay disponibilidad
+                        </p>
+                        <div style="text-align: center; margin-top: 1.5rem;">
+                            <a href="https://wa.me/524776152686?text=¡Hola Ana! Quiero saber si aún hay disponibilidad para AI Viral Downline" 
+                               class="btn btn-secondary" 
+                               target="_blank"
+                               style="padding: 0.8rem 1.5rem; font-size: 1rem;">
+                                💬 Contactar a Ana
+                            </a>
+                        </div>
+                    `;
+                    
+                    return;
+                }
+                
+                // Calcular horas, minutos y segundos
+                const hours = Math.floor(distance / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Actualizar elementos
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+                
+                // Efectos visuales según el tiempo restante
+                if (hours < 6) {
+                    countdownContainer.style.borderColor = '#FF6B6B';
+                    countdownContainer.style.boxShadow = '0 10px 30px rgba(255, 107, 107, 0.5)';
+                    
+                    if (hours < 3) {
+                        // Efecto de parpadeo para las últimas 3 horas
+                        const blink = Math.floor(Date.now() / 500) % 2 === 0;
+                        hoursElement.style.color = blink ? '#FF6B6B' : '#FFD700';
+                        minutesElement.style.color = blink ? '#FF6B6B' : '#FFD700';
+                        secondsElement.style.color = blink ? '#FF6B6B' : '#FFD700';
+                        
+                        if (hours < 1) {
+                            // Efecto más intenso para la última hora
+                            countdownContainer.style.animation = 'pulseBorder 0.5s infinite alternate';
+                        }
+                    }
                 }
             }
             
-            // Si el contador llega a cero, mostrar mensaje
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.querySelector('.countdown-title').innerHTML = "⏰ ¡TIEMPO AGOTADO!";
-                document.querySelector('.countdown-subtitle').textContent = "La oferta de 24 horas ha finalizado. Contacta a Ana para verificar disponibilidad.";
-                document.querySelector('.bonus-box').style.opacity = "0.6";
-                document.querySelector('.bonus-box').innerHTML = "<p style='text-align: center; color: #FF6B6B; font-weight: 600;'>El bono de 24 horas ya no está disponible. Contacta a Ana para otras promociones.</p>";
-            }
-        }
-        
-        // Actualizar contador cada segundo
-        const countdownInterval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Llamar inmediatamente
-        
-        // Animaciones para números
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animación para números de ingresos
+            // Actualizar inmediatamente y luego cada segundo
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+            
+            // Animaciones para números de ingresos
             const numbers = document.querySelectorAll('.highlight-number');
             numbers.forEach(number => {
                 const target = parseInt(number.textContent.replace(/[^0-9]/g, ''));
@@ -889,26 +937,11 @@
                 observer.observe(number);
             });
             
-            // Efecto de parpadeo para el contador cuando quedan pocos segundos
-            setInterval(() => {
-                const seconds = parseInt(document.getElementById('seconds').textContent);
-                const minutes = parseInt(document.getElementById('minutes').textContent);
-                const hours = parseInt(document.getElementById('hours').textContent);
-                
-                if (hours === 0 && minutes < 5) {
-                    document.getElementById('seconds').style.animation = 'none';
-                    setTimeout(() => {
-                        document.getElementById('seconds').style.animation = 'countPulse 0.5s ease-in-out infinite';
-                    }, 10);
-                }
-            }, 1000);
-            
             // Tracking de clicks en botones del menú
             const menuButtons = document.querySelectorAll('.menu-btn');
             menuButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     console.log('Click en menú: ' + this.textContent.trim());
-                    // Aquí puedes agregar Google Analytics o otro tracking
                 });
             });
         });
